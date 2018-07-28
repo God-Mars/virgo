@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				box-sizing: border-box;
+			}
+			.main{
+				transform-style: preserve-3d;
+				perspective: 1000px;
+				
+			}
+			.all{
+				width: 100%;
+				height: 100%;
+				background-color: silver;
+			}
+			.btn{
+				text-align: center;
+			}
+			
+			.btn label{
+				display: inline-block;
+				width: 100px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border-radius: 20px;
+				background: plum;
+				margin: 20px 30px;
+				color: yellow;
+			}
+
+			.mofang{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				margin:300px auto;
+				transition: all 5s 1.8s;
+				transform-style: preserve-3d;
+				
+				/*animation-direction: alternate;*/
+				/*animation: ratate2 3s linear 2s infinite alternate;*/
+				/*animation: ratate1 2s linear 2s ;*/
+				/*transform: rotate3d(-1,1,0,0deg) scale3d(1,1,1);*/
+				
+				
+			}
+			.mofang div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*opacity透明度设置：完全透明是0，完全不透明是1*/
+				opacity: 0.6;
+				border: 3px solid black;
+				/*box-shadow: 0px 0px 40px #FFFFFF,0px 0px 60px pink,0px 0px 80px plum;*/
+
+				/*transition: all 2s;*/
+				/*animation: ratates 5s  infinite;*/
+				
+				
+			}
+			.front{
+				background-image: url(img/he.jpg);
+				background-size: 100% 100%;
+				animation: fr 2s  forwards;
+				
+			}
+
+			.back{
+				background-image: url(img/wen.jpg);
+				background-size: 100% 100%;
+				animation: ba 2s forwards;
+			}
+			.left{
+				background-image: url(img/jing.jpg);
+				background-size: 100% 100%;
+				animation: le 2s forwards;
+			}
+			.right{
+				background-image: url(img/wo.jpg);
+				background-size: 100% 100%;
+				animation: ri 2s forwards;
+			}
+			.top{
+				background-image: url(img/ai1.jpg);
+				background-size: 100% 100%;
+				animation: to 2s forwards;
+			}
+			.bottom{
+				background-image: url(img/ni.jpg);
+				background-size: 100% 100%;
+				animation: bo 2s forwards;
+			}
+			
+			@keyframes ratate2{
+				
+				0%{/*transform: rotate3d(1,1,1,0deg) translate3d(-100px,100px,100px);*/}
+				/*50%{transform: rotate3d(1,1,0,360deg) translate3d(-200px,200px,0px);}*/
+				100%{transform: rotate3d(1,1,1,360deg) scale3d(2,2,2);}
+			}
+			@keyframes fr{
+				from{}
+				to{transform: translateZ(100px);}
+			}
+			@keyframes ba{
+				from{}
+				to{transform: rotateY(180deg) translateZ(100px);}
+			}
+			@keyframes le{
+				from{}
+				to{transform: rotateY(90deg) translateZ(100px);}
+			}
+			@keyframes ri{
+				from{}
+				to{transform: rotateY(-90deg) translateZ(100px);}
+			}
+			@keyframes to{
+				from{}
+				to{transform: rotateX(90deg) translateZ(100px);}
+			}
+			@keyframes bo{
+				from{}
+				to{transform: rotateX(-90deg) translateZ(100px);}
+			}
+			#faguang:checked ~ .main .mofang div{
+				box-shadow: 0px 0px 40px #FFFFFF,0px 0px 60px pink,0px 0px 80px plum;
+			}
+			#xuanzhuan:checked ~ .main .mofang{
+				animation: xuanzhuan 3s linear infinite ;
+			}
+			#tingzhi:checked ~ .main .mofang{
+				transform: translateZ(0px);
+				animation:none;
+			}
+			#fangda:checked ~ .main .mofang{
+				animation: fangda 4s infinite alternate;
+			}
+			#suoxiao:checked ~ .main .mofang{
+				animation: suoxiao 4s infinite alternate;
+			}
+			@keyframes xuanzhuan{
+				from{
+					transform: rotate3d(-1,-1,-1,0deg) scale3d(1,1,1);
+				}
+				to{
+					transform: rotate3d(-1,-1,-1,360deg) scale3d(1,1,1);
+				}
+			}
+			@keyframes fangda{
+				from{
+					transform: rotate3d(1,1,1,0deg) scale3d(1,1,1);
+				}
+				to{
+					transform: rotate3d(1,1,1,360deg) scale3d(2,2,2);
+				}
+			}
+			@keyframes suoxiao{
+				from{transform: rotate3d(1,1,1,0deg) scale3d(1,1,1);}
+				to{transform: rotate3d(1,1,1,360deg) scale3d(0.5,0.5,0.5);}
+			}
+			/*.mofang:hover{
+				transform: rotate3d(1,1,0,360deg) scale3d(2,2,2);
+			}*/
+			/*.mofang:hover .front{
+				transform: translateZ(100px);
+				
+			}
+			.mofang:hover .back{
+				transform: rotateY(180deg) translateZ(100px);
+				
+			}
+			.mofang:hover .left{
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.mofang:hover .right{
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			.main:hover .top{
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.main:hover .bottom{
+				transform: rotateX(-90deg) translateZ(100px);
+			}*/
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			
+		
+		<div class="btn">
+			<label for="faguang">发光</label>
+			<label for="xuanzhuan">旋转</label>
+			<label for="tingzhi">停止</label>
+			<label for="suoxiao">缩小</label>
+			<label for="fangda">放大</label>
+			
+		</div>
+		<input type="checkbox" name="faguang" id="faguang" value="发光" hidden="hidden"/>
+		<input type="radio" name="zhengmian" id="xuanzhuan" value="旋转" hidden="hidden"/>
+		<input type="radio" name="zhengmian" id="tingzhi" value="停止" hidden="hidden"/>
+		<input type="radio" name="zhengmian" id="suoxiao" value="缩小"hidden="hidden" />
+		<input type="radio" name="zhengmian" id="fangda" value="放大" hidden="hidden"/>
+		
+		<div class="main">
+			
+				<div class="mofang">
+					<div class="front"></div>
+					<div class="back"></div>
+					<div class="left"></div>
+					<div class="right"></div>
+					<div class="top"></div>
+					<div class="bottom"></div>
+				</div>
+			
+		</div>
+		</div>
+	</body>
+</html>
